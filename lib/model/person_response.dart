@@ -23,9 +23,6 @@ class PersonResponse extends Equatable {
     );
   }
 
-  factory PersonResponse.fromJson(String source) =>
-      PersonResponse.fromMap(json.decode(source));
-
   factory PersonResponse.fromMap(Map<String, dynamic> map) {
     return PersonResponse(
       persons: List<Person>.from(map['results']?.map((m) => Person.fromMap(m))),

@@ -23,9 +23,6 @@ class MovieResponse extends Equatable {
     );
   }
 
-  factory MovieResponse.fromJson(String source) =>
-      MovieResponse.fromMap(json.decode(source));
-
   factory MovieResponse.fromMap(Map<String, dynamic> map) {
     return MovieResponse(
       movies: List<Movie>.from(map['results']?.map((m) => Movie.fromMap(m))),

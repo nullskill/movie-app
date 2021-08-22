@@ -23,9 +23,6 @@ class GenreResponse extends Equatable {
     );
   }
 
-  factory GenreResponse.fromJson(String source) =>
-      GenreResponse.fromMap(json.decode(source));
-
   factory GenreResponse.fromMap(Map<String, dynamic> map) {
     return GenreResponse(
       genres: List<Genre>.from(map['results']?.map((m) => Genre.fromMap(m))),
