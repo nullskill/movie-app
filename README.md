@@ -1,1 +1,1 @@
-movie-app
+The movie db app
