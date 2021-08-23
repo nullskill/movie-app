@@ -23,7 +23,7 @@ class GenreResponse extends Equatable {
 
   factory GenreResponse.fromMap(Map<String, dynamic> map) {
     return GenreResponse(
-      genres: List<Genre>.from(map['results']?.map((m) => Genre.fromMap(m))),
+      genres: List<Genre>.from(map['genres']?.map((m) => Genre.fromMap(m))),
       error: '',
     );
   }

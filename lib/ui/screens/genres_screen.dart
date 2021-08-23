@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/bloc/get_genres_bloc.dart';
+import 'package:movie_app/model/genre.dart';
 import 'package:movie_app/model/genre_response.dart';
+import 'package:movie_app/ui/res/colors.dart';
 import 'package:movie_app/ui/widgets/app_error.dart';
+import 'package:movie_app/ui/widgets/genres_list.dart';
 import 'package:movie_app/ui/widgets/loader.dart';
 
 class GenresScreen extends StatefulWidget {
@@ -39,5 +42,27 @@ class _GenresScreenState extends State<GenresScreen> {
         return Loader();
       },
     );
+  }
+}
+
+class Genres extends StatelessWidget {
+  final List<Genre> genres;
+
+  const Genres({Key? key, required this.genres}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    if (genres.isEmpty) {
+      return Center(
+        child: const Text(
+          'No genres',
+          style: TextStyle(
+            color: AppColors.blackColor,
+          ),
+        ),
+      );
+    }
+
+    return GenresList(genres: genres);
   }
 }
