@@ -4,6 +4,8 @@ import 'package:movie_app/bloc/get_now_playing_bloc.dart';
 import 'package:movie_app/model/movie.dart';
 import 'package:movie_app/model/movie_response.dart';
 import 'package:movie_app/ui/res/colors.dart';
+import 'package:movie_app/ui/widgets/app_error.dart';
+import 'package:movie_app/ui/widgets/loader.dart';
 import 'package:page_indicator/page_indicator.dart';
 
 /// The screen for displaying list of movies in theatres
@@ -30,56 +32,16 @@ class _NowPlayingState extends State<NowPlaying> {
         if (snapshot.hasData) {
           final data = snapshot.data!;
           if (data.error.isNotEmpty) {
-            return _Error(error: data.error);
+            return AppError(error: data.error);
           }
           return _NowPlaying(movies: data.movies);
         }
         if (snapshot.hasError) {
-          return _Error(error: snapshot.error.toString());
+          return AppError(error: snapshot.error.toString());
         }
 
-        return _Loader();
+        return Loader();
       },
-    );
-  }
-}
-
-class _Loader extends StatelessWidget {
-  const _Loader({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          SizedBox(
-            height: 25,
-            width: 25,
-            child: CircularProgressIndicator(
-              valueColor: new AlwaysStoppedAnimation<Color>(Colors.white),
-              strokeWidth: 4.0,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _Error extends StatelessWidget {
-  final String error;
-
-  const _Error({Key? key, required this.error}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('Error occured: $error'),
-        ],
-      ),
     );
   }
 }
@@ -142,7 +104,6 @@ class _NowPlaying extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 10),
                   Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
