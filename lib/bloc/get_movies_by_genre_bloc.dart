@@ -5,9 +5,9 @@ import 'package:rxdart/subjects.dart';
 
 class MoviesListByGenreBloc {
   final _repository = MovieRepository();
-  final _subject = BehaviorSubject<MovieResponse?>();
+  final _subject = BehaviorSubject<MovieResponse>();
 
-  BehaviorSubject<MovieResponse?> get subject => _subject;
+  BehaviorSubject<MovieResponse> get subject => _subject;
 
   Future<void> getMoviesByGenre(int id) async {
     final response = await _repository.getMoviesByGenre(id);

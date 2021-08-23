@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
@@ -6,10 +7,10 @@ import 'package:meta/meta.dart';
 class Movie extends Equatable {
   final int id;
   final String title;
-  final String poster;
-  final String backPoster;
-  final double popularity;
-  final double rating;
+  final String? poster;
+  final String? backPoster;
+  final num popularity;
+  final num rating;
 
   Movie({
     required this.id,

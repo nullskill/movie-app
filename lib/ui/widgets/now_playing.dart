@@ -47,6 +47,7 @@ class _NowPlayingState extends State<NowPlaying> {
 }
 
 class _NowPlaying extends StatelessWidget {
+  static const tmdbUrl = 'https://image.tmdb.org/t/p/original/';
   final List<Movie> movies;
   final PageController _pageController =
       PageController(viewportFraction: 1, keepPage: true);
@@ -97,7 +98,7 @@ class _NowPlaying extends StatelessWidget {
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: NetworkImage(
-                              'https://image.tmdb.org/t/p/original/${movies[index].backPoster}',
+                              '$tmdbUrl${movies[index].backPoster}',
                             ),
                           ),
                         ),

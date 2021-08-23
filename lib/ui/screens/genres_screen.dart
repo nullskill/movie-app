@@ -32,8 +32,7 @@ class _GenresScreenState extends State<GenresScreen> {
           if (data.error.isNotEmpty) {
             return AppError(error: data.error);
           }
-          // return _NowPlaying(movies: data.movies);
-          return SizedBox();
+          return _Genres(genres: data.genres);
         }
         if (snapshot.hasError) {
           return AppError(error: snapshot.error.toString());
@@ -45,10 +44,10 @@ class _GenresScreenState extends State<GenresScreen> {
   }
 }
 
-class Genres extends StatelessWidget {
+class _Genres extends StatelessWidget {
   final List<Genre> genres;
 
-  const Genres({Key? key, required this.genres}) : super(key: key);
+  const _Genres({Key? key, required this.genres}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,9 +55,7 @@ class Genres extends StatelessWidget {
       return Center(
         child: const Text(
           'No genres',
-          style: TextStyle(
-            color: AppColors.blackColor,
-          ),
+          style: TextStyle(color: AppColors.blackColor),
         ),
       );
     }
