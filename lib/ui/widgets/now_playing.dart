@@ -28,10 +28,11 @@ class _NowPlayingState extends State<NowPlaying> {
       stream: nowPlayingMoviesBloc.subject.stream,
       builder: (context, AsyncSnapshot<MovieResponse> snapshot) {
         if (snapshot.hasData) {
-          if (snapshot.data!.error.isNotEmpty) {
-            return _Error(error: snapshot.data!.error);
+          final data = snapshot.data!;
+          if (data.error.isNotEmpty) {
+            return _Error(error: data.error);
           }
-          return _NowPlaying(movies: snapshot.data!.movies);
+          return _NowPlaying(movies: data.movies);
         }
         if (snapshot.hasError) {
           return _Error(error: snapshot.error.toString());
@@ -76,7 +77,7 @@ class _Error extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text("Error occured: $error"),
+          Text('Error occured: $error'),
         ],
       ),
     );
@@ -112,18 +113,19 @@ class _NowPlaying extends StatelessWidget {
         indicatorSpace: 8,
         indicatorColor: AppColors.titleColor,
         indicatorSelectorColor: AppColors.secondColor,
-        shape: IndicatorShape.roundRectangleShape(size: Size(5, 5)),
+        shape: IndicatorShape.circle(size: 5),
         child: PageView.builder(
           controller: _pageController,
           scrollDirection: Axis.horizontal,
           itemCount: movies.take(5).length,
           itemBuilder: (context, index) {
+            final movie = movies[index];
             return GestureDetector(
               onTap: () {},
               child: Stack(
                 children: [
                   Hero(
-                    tag: movies[index].id,
+                    tag: movie.id,
                     child: SizedBox(
                       width: double.infinity,
                       height: 220,
@@ -141,7 +143,7 @@ class _NowPlaying extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  DecoratedBox(
+                  Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.bottomCenter,
@@ -175,7 +177,7 @@ class _NowPlaying extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              movies[index].title,
+                              movie.title,
                               style: const TextStyle(
                                 height: 1.5,
                                 color: AppColors.whiteColor,
