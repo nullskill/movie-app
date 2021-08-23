@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:movie_app/model/movie_response.dart';
 import 'package:movie_app/repository/repository.dart';
 import 'package:rxdart/subjects.dart';
@@ -14,12 +14,12 @@ class MoviesListByGenreBloc {
     _subject.add(response);
   }
 
-  void drainStream() {
-    _subject.value = null;
+  Future<void> drainStream() async {
+    await _subject.drain();
   }
 
   @mustCallSuper
-  void dispose() async {
+  Future<void> dispose() async {
     await _subject.drain();
     _subject.close();
   }

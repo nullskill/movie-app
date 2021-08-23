@@ -4,6 +4,8 @@ import 'package:movie_app/model/genre_response.dart';
 import 'package:movie_app/model/movie_response.dart';
 import 'package:movie_app/model/person_response.dart';
 
+// The movie repository for managing API calls
+/// API docs: https://developers.themoviedb.org/3/getting-started/introduction
 class MovieRepository {
   final String apiKey = 'c864b6743a99083fc1c2e4accff52c10';
   static String apiUrl = 'https://api.themoviedb.org/3';
@@ -16,6 +18,7 @@ class MovieRepository {
   final getGenresUrl = '$apiUrl/genre/movie/list';
   final getPersonsUrl = '$apiUrl/trending/person/week';
 
+  /// Get the top rated movies on TMDB
   Future<MovieResponse> getMovies() async {
     final params = {'api_key': apiKey, 'language': 'en-US', 'page': 1};
 
@@ -31,6 +34,7 @@ class MovieRepository {
     }
   }
 
+  /// Get a list of movies in theatres
   Future<MovieResponse> getPlayingMovies() async {
     final params = {'api_key': apiKey, 'language': 'en-US', 'page': 1};
 
@@ -46,6 +50,7 @@ class MovieRepository {
     }
   }
 
+  /// Get the list of official genres for movies
   Future<GenreResponse> getGenres() async {
     final params = {'api_key': apiKey, 'language': 'en-US', 'page': 1};
 
@@ -60,6 +65,7 @@ class MovieRepository {
     }
   }
 
+  /// Show the trending people
   Future<PersonResponse> getPersons() async {
     final params = {'api_key': apiKey};
 
@@ -75,6 +81,7 @@ class MovieRepository {
     }
   }
 
+  /// Discover movies by genre [id]
   Future<MovieResponse> getMoviesByGenre(int id) async {
     final params = {
       'api_key': apiKey,

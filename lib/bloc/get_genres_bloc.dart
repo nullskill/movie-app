@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:movie_app/model/genre_response.dart';
 import 'package:movie_app/repository/repository.dart';
 import 'package:rxdart/subjects.dart';
@@ -13,7 +14,13 @@ class GenresListBloc {
     _subject.add(response);
   }
 
-  void dispose() {
+  Future<void> drainStream() async {
+    await _subject.drain();
+  }
+
+  @mustCallSuper
+  Future<void> dispose() async {
+    await _subject.drain();
     _subject.close();
   }
 }

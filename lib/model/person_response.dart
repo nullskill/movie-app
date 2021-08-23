@@ -1,7 +1,5 @@
-import 'dart:convert';
-import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
-
+import 'package:meta/meta.dart';
 import 'package:movie_app/model/person.dart';
 
 @immutable
