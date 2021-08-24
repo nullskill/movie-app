@@ -80,11 +80,12 @@ class _MoviesByGenre extends StatelessWidget {
               right: 10,
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _getMoviePoster(movie),
                 const SizedBox(height: 10),
                 SizedBox(
-                  width: 100,
+                  width: 120,
                   child: Text(
                     movie.title,
                     maxLines: 2,
@@ -107,23 +108,23 @@ class _MoviesByGenre extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         color: AppColors.whiteColor,
                       ),
-                    )
+                    ),
+                    const SizedBox(height: 5),
+                    RatingBar.builder(
+                      itemSize: 8,
+                      itemCount: 5,
+                      itemPadding: const EdgeInsets.symmetric(horizontal: 2),
+                      initialRating: movie.rating / 2,
+                      minRating: 1,
+                      direction: Axis.horizontal,
+                      allowHalfRating: true,
+                      itemBuilder: (context, _) => Icon(
+                        EvaIcons.star,
+                        color: AppColors.secondColor,
+                      ),
+                      onRatingUpdate: (rating) => print(rating),
+                    ),
                   ],
-                ),
-                const SizedBox(height: 5),
-                RatingBar.builder(
-                  itemSize: 8,
-                  itemCount: 5,
-                  itemPadding: const EdgeInsets.symmetric(horizontal: 2),
-                  initialRating: movie.rating / 2,
-                  minRating: 1,
-                  direction: Axis.horizontal,
-                  allowHalfRating: true,
-                  itemBuilder: (context, _) => Icon(
-                    EvaIcons.star,
-                    color: AppColors.secondColor,
-                  ),
-                  onRatingUpdate: (rating) => print(rating),
                 ),
               ],
             ),
@@ -145,28 +146,26 @@ class _MoviesByGenre extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(2)),
           shape: BoxShape.rectangle,
         ),
-        child: Column(
-          children: [
-            Icon(
-              EvaIcons.filmOutline,
-              color: AppColors.whiteColor,
-              size: 50,
-            ),
-          ],
+        child: Icon(
+          EvaIcons.filmOutline,
+          color: AppColors.whiteColor,
+          size: 50,
         ),
       );
     }
 
-    return Container(
+    return SizedBox(
       width: 120,
       height: 180,
-      decoration: BoxDecoration(
-        color: AppColors.secondColor,
-        borderRadius: BorderRadius.all(Radius.circular(2)),
-        shape: BoxShape.rectangle,
-        image: DecorationImage(
-          image: NetworkImage('$tmdbUrl${movie.poster}'),
-          fit: BoxFit.cover,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: AppColors.secondColor,
+          borderRadius: BorderRadius.all(Radius.circular(2)),
+          shape: BoxShape.rectangle,
+          image: DecorationImage(
+            image: NetworkImage('$tmdbUrl${movie.poster}'),
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );
