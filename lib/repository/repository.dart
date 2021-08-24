@@ -3,13 +3,11 @@ import 'package:flutter/foundation.dart';
 import 'package:movie_app/model/genre_response.dart';
 import 'package:movie_app/model/movie_response.dart';
 import 'package:movie_app/model/person_response.dart';
+import 'package:movie_app/utils/consts.dart';
 
 // The movie repository for managing API calls
 /// API docs: https://developers.themoviedb.org/3/getting-started/introduction
 class MovieRepository {
-  final String apiKey = 'c864b6743a99083fc1c2e4accff52c10';
-  static String apiUrl = 'https://api.themoviedb.org/3';
-
   final Dio _dio = Dio();
 
   final getMoviesUrl = '$apiUrl/discover/movie';

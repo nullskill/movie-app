@@ -7,6 +7,7 @@ import 'package:movie_app/model/movie_response.dart';
 import 'package:movie_app/ui/res/colors.dart';
 import 'package:movie_app/ui/widgets/app_error.dart';
 import 'package:movie_app/ui/widgets/loader.dart';
+import 'package:movie_app/utils/consts.dart';
 
 class GenreMovies extends StatefulWidget {
   final int genreId;
@@ -29,7 +30,7 @@ class _GenreMoviesState extends State<GenreMovies> {
   Widget build(BuildContext context) {
     return StreamBuilder<MovieResponse>(
       stream: moviesByGenreBloc.subject.stream,
-      builder: (context, AsyncSnapshot<MovieResponse> snapshot) {
+      builder: (context, snapshot) {
         if (snapshot.hasData) {
           final data = snapshot.data!;
           if (data.error.isNotEmpty) {
@@ -58,9 +59,7 @@ class _MoviesByGenre extends StatelessWidget {
       return Center(
         child: const Text(
           'No movies',
-          style: TextStyle(
-            color: AppColors.blackColor,
-          ),
+          style: TextStyle(color: AppColors.blackColor),
         ),
       );
     }
@@ -135,8 +134,6 @@ class _MoviesByGenre extends StatelessWidget {
   }
 
   Widget _getMoviePoster(Movie movie) {
-    const tmdbUrl = 'https://image.tmdb.org/t/p/w200/';
-
     if (movie.poster == null) {
       return Container(
         width: 120,

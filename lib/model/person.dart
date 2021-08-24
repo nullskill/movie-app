@@ -6,30 +6,30 @@ import 'package:meta/meta.dart';
 @immutable
 class Person extends Equatable {
   final int id;
-  final double popularity;
   final String name;
-  final String profileImg;
+  final num popularity;
+  final String? profileImg;
   final String known;
 
   Person({
     required this.id,
-    required this.popularity,
     required this.name,
+    required this.popularity,
     required this.profileImg,
     required this.known,
   });
 
   Person copyWith({
     int? id,
-    double? popularity,
     String? name,
+    double? popularity,
     String? profileImg,
     String? known,
   }) {
     return Person(
       id: id ?? this.id,
-      popularity: popularity ?? this.popularity,
       name: name ?? this.name,
+      popularity: popularity ?? this.popularity,
       profileImg: profileImg ?? this.profileImg,
       known: known ?? this.known,
     );
@@ -38,8 +38,8 @@ class Person extends Equatable {
   factory Person.fromMap(Map<String, dynamic> map) {
     return Person(
       id: map['id'],
-      popularity: map['popularity'],
       name: map['name'],
+      popularity: map['popularity'],
       profileImg: map['profile_path'],
       known: map['known_for_department'],
     );
@@ -50,14 +50,14 @@ class Person extends Equatable {
   @override
   List<Object?> get props => [
         id,
-        popularity,
         name,
+        popularity,
         profileImg,
         known,
       ];
 
   @override
   String toString() {
-    return 'Person(id: $id, popularity: $popularity, name: $name, profileImg: $profileImg, known: $known)';
+    return 'Person(id: $id, name: $name, popularity: $popularity, profileImg: $profileImg, known: $known)';
   }
 }

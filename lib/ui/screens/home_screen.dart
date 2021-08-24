@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/ui/res/colors.dart';
 import 'package:movie_app/ui/screens/genres_screen.dart';
 import 'package:movie_app/ui/widgets/now_playing.dart';
+import 'package:movie_app/ui/widgets/persons.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -35,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           NowPlaying(),
           GenresScreen(),
+          PersonsList(),
         ],
       ),
     );

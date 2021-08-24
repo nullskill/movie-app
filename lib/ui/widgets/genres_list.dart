@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/bloc/get_movies_by_genre_bloc.dart';
 import 'package:movie_app/model/genre.dart';
 import 'package:movie_app/ui/res/colors.dart';
 import 'package:movie_app/ui/widgets/genre_movies.dart';
@@ -21,6 +22,11 @@ class _GenresListState extends State<GenresList>
     super.initState();
 
     _tabController = TabController(vsync: this, length: widget.genres.length);
+    _tabController.addListener(() {
+      if (_tabController.indexIsChanging) {
+        moviesByGenreBloc.drainStream();
+      }
+    });
   }
 
   @override
