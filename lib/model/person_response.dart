@@ -29,7 +29,7 @@ class PersonResponse extends Equatable {
   }
 
   PersonResponse.withError(String errorValue)
-      : persons = List.empty(),
+      : persons = [],
         error = errorValue;
 
   @override

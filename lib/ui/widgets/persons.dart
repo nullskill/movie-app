@@ -22,7 +22,7 @@ class _PersonsListState extends State<PersonsList> {
   void initState() {
     super.initState();
 
-    personsBloc.getPersons();
+    personsBloc..getPersons();
   }
 
   @override

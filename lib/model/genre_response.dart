@@ -29,7 +29,7 @@ class GenreResponse extends Equatable {
   }
 
   GenreResponse.withError(String errorValue)
-      : genres = List.empty(),
+      : genres = [],
         error = errorValue;
 
   @override

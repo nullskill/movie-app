@@ -23,7 +23,7 @@ class _GenreMoviesState extends State<GenreMovies> {
   void initState() {
     super.initState();
 
-    moviesByGenreBloc.getMoviesByGenre(widget.genreId);
+    moviesByGenreBloc..getMoviesByGenre(widget.genreId);
   }
 
   @override

@@ -21,7 +21,7 @@ class _NowPlayingState extends State<NowPlaying> {
   void initState() {
     super.initState();
 
-    nowPlayingMoviesBloc.getPlayingMovies();
+    nowPlayingMoviesBloc..getPlayingMovies();
   }
 
   @override

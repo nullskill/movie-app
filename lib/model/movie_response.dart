@@ -29,7 +29,7 @@ class MovieResponse extends Equatable {
   }
 
   MovieResponse.withError(String errorValue)
-      : movies = List.empty(),
+      : movies = [],
         error = errorValue;
 
   @override

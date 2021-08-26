@@ -23,7 +23,7 @@ class _TopMoviesState extends State<TopMovies> {
   void initState() {
     super.initState();
 
-    moviesBloc.getMovies();
+    moviesBloc..getMovies();
   }
 
   @override
