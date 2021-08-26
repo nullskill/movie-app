@@ -101,7 +101,7 @@ class MovieRepository {
     }
   }
 
-  Future<MovieDetailResponse> getMovieDetails(int id) async {
+  Future<CastResponse> getMovieDetails(int id) async {
     final params = {
       'api_key': apiKey,
       'language': 'en-US',
@@ -111,11 +111,47 @@ class MovieRepository {
       Response response =
           await _dio.get('movieUrl/$id', queryParameters: params);
 
-      return MovieDetailResponse.fromMap(response.data);
+      return CastResponse.fromMap(response.data);
     } catch (error, stackTrace) {
       debugPrint('Exception occured: $error stackTrace: $stackTrace');
 
-      return MovieDetailResponse.withError('$error');
+      return CastResponse.withError('$error');
+    }
+  }
+
+  Future<CastResponse> getCasts(int id) async {
+    final params = {
+      'api_key': apiKey,
+      'language': 'en-US',
+    };
+
+    try {
+      Response response =
+          await _dio.get('movieUrl/$id/credits', queryParameters: params);
+
+      return CastResponse.fromMap(response.data);
+    } catch (error, stackTrace) {
+      debugPrint('Exception occured: $error stackTrace: $stackTrace');
+
+      return CastResponse.withError('$error');
+    }
+  }
+
+  Future<MovieResponse> getSimilarMovies(int id) async {
+    final params = {
+      'api_key': apiKey,
+      'language': 'en-US',
+    };
+
+    try {
+      Response response =
+          await _dio.get('movieUrl/$id/similar', queryParameters: params);
+
+      return MovieResponse.fromMap(response.data);
+    } catch (error, stackTrace) {
+      debugPrint('Exception occured: $error stackTrace: $stackTrace');
+
+      return MovieResponse.withError('$error');
     }
   }
 }

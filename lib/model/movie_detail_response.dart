@@ -2,23 +2,23 @@ import 'package:flutter/foundation.dart';
 import 'package:movie_app/model/movie_detail.dart';
 
 @immutable
-class MovieDetailResponse {
+class CastResponse {
   final MovieDetail movieDetail;
   final String error;
 
-  MovieDetailResponse({
+  CastResponse({
     required this.movieDetail,
     required this.error,
   });
 
-  factory MovieDetailResponse.fromMap(Map<String, dynamic> map) {
-    return MovieDetailResponse(
+  factory CastResponse.fromMap(Map<String, dynamic> map) {
+    return CastResponse(
       movieDetail: MovieDetail.fromMap(map),
       error: '',
     );
   }
 
-  MovieDetailResponse.withError(String errorValue)
+  CastResponse.withError(String errorValue)
       : movieDetail = MovieDetail(
             id: null,
             adult: null,
