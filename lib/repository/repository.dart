@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:movie_app/model/genre_response.dart';
+import 'package:movie_app/model/movie_detail_response.dart';
 import 'package:movie_app/model/movie_response.dart';
 import 'package:movie_app/model/person_response.dart';
 import 'package:movie_app/utils/consts.dart';
@@ -15,6 +16,7 @@ class MovieRepository {
   final getPlayingUrl = '$apiUrl/movie/now_playing';
   final getGenresUrl = '$apiUrl/genre/movie/list';
   final getPersonsUrl = '$apiUrl/trending/person/week';
+  final movieUrl = '$apiUrl/movie';
 
   /// Get the top rated movies on TMDB
   Future<MovieResponse> getMovies() async {
@@ -96,6 +98,24 @@ class MovieRepository {
       debugPrint('Exception occured: $error stackTrace: $stackTrace');
 
       return MovieResponse.withError('$error');
+    }
+  }
+
+  Future<MovieDetailResponse> getMovieDetails(int id) async {
+    final params = {
+      'api_key': apiKey,
+      'language': 'en-US',
+    };
+
+    try {
+      Response response =
+          await _dio.get('movieUrl/$id', queryParameters: params);
+
+      return MovieDetailResponse.fromMap(response.data);
+    } catch (error, stackTrace) {
+      debugPrint('Exception occured: $error stackTrace: $stackTrace');
+
+      return MovieDetailResponse.withError('$error');
     }
   }
 }
