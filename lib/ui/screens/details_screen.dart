@@ -16,7 +16,15 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.mainColor,
-      body: SizedBox(),
+      body: Builder(
+        builder: (context) {
+          // return SliverFab(
+          //   slivers: ,
+          // floatingPosition: FloatingPosition(right: 20),
+          // floatingWidget: );
+          return SizedBox();
+        },
+      ),
     );
   }
 }
