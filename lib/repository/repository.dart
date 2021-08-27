@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:movie_app/model/cast_response.dart';
 import 'package:movie_app/model/genre_response.dart';
 import 'package:movie_app/model/movie_detail_response.dart';
 import 'package:movie_app/model/movie_response.dart';
@@ -102,18 +103,18 @@ class MovieRepository {
     }
   }
 
-  Future<CastResponse> getMovieDetails(int id) async {
+  Future<MovieDetailsResponse> getMovieDetails(int id) async {
     final params = {'api_key': apiKey, 'language': 'en-US'};
 
     try {
       Response response =
           await _dio.get('movieUrl/$id', queryParameters: params);
 
-      return CastResponse.fromMap(response.data);
+      return MovieDetailsResponse.fromMap(response.data);
     } catch (error, stackTrace) {
       debugPrint('Exception occured: $error stackTrace: $stackTrace');
 
-      return CastResponse.withError('$error');
+      return MovieDetailsResponse.withError('$error');
     }
   }
 

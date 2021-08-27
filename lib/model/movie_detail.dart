@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:movie_app/model/genre.dart';
 
 @immutable
-class MovieDetail extends Equatable {
+class MovieDetails extends Equatable {
   final int? id;
   final bool? adult;
   final int? budget;
@@ -11,7 +11,7 @@ class MovieDetail extends Equatable {
   final String releaseDate;
   final int? runtime;
 
-  MovieDetail({
+  MovieDetails({
     required this.id,
     required this.adult,
     required this.budget,
@@ -20,7 +20,7 @@ class MovieDetail extends Equatable {
     required this.runtime,
   });
 
-  MovieDetail copyWith({
+  MovieDetails copyWith({
     int? id,
     bool? adult,
     int? budget,
@@ -28,7 +28,7 @@ class MovieDetail extends Equatable {
     String? releaseDate,
     int? runtime,
   }) {
-    return MovieDetail(
+    return MovieDetails(
       id: id ?? this.id,
       adult: adult ?? this.adult,
       budget: budget ?? this.budget,
@@ -38,8 +38,8 @@ class MovieDetail extends Equatable {
     );
   }
 
-  factory MovieDetail.fromMap(Map<String, dynamic> map) {
-    return MovieDetail(
+  factory MovieDetails.fromMap(Map<String, dynamic> map) {
+    return MovieDetails(
       id: map['id'],
       adult: map['adult'],
       budget: map['budget'],
