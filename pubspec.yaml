@@ -13,8 +13,6 @@ dependencies:
     sdk: flutter
 
 
-  # A state management library that helps implement the BLoC
-  bloc: ^7.1.0
   # Default icons asset for Cupertino widgets based on Apple styled icons
   cupertino_icons: ^1.0.2
   # A powerful Http client for Dart

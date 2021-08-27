@@ -8,12 +8,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "bloc",
-      "rootUri": "file:///Users/ilya/dev/flutter/.pub-cache/hosted/pub.dartlang.org/bloc-7.1.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "boolean_selector",
       "rootUri": "file:///Users/ilya/dev/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0",
       "packageUri": "lib/",
@@ -206,7 +200,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-08-23T09:17:27.622885Z",
+  "generated": "2021-08-27T07:17:15.808475Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }
