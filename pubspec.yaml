@@ -29,6 +29,11 @@ dependencies:
   page_indicator: ^0.4.1
   # RxDart is an implementation of the popular reactiveX api
   rxdart: ^0.27.1
+  # A wrapper widget allowing to place a widget on the edge of FlexibleSpacebar
+  sliver_fab:
+    git:
+      url: https://github.com/chrystoffer/sliver_fab
+      ref: master
   # plugin for playing or streaming YouTube videos inline
   youtube_player_flutter: ^8.0.0
 
