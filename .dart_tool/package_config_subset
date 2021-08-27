@@ -42,6 +42,10 @@ fake_async
 2.12
 file:///Users/ilya/dev/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0/
 file:///Users/ilya/dev/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0/lib/
+flutter_inappwebview
+2.12
+file:///Users/ilya/dev/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inappwebview-5.3.2/
+file:///Users/ilya/dev/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inappwebview-5.3.2/lib/
 flutter_lints
 2.12
 file:///Users/ilya/dev/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-1.0.4/
@@ -114,6 +118,10 @@ vector_math
 2.12
 file:///Users/ilya/dev/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.0/
 file:///Users/ilya/dev/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.0/lib/
+youtube_player_flutter
+2.12
+file:///Users/ilya/dev/flutter/.pub-cache/hosted/pub.dartlang.org/youtube_player_flutter-8.0.0/
+file:///Users/ilya/dev/flutter/.pub-cache/hosted/pub.dartlang.org/youtube_player_flutter-8.0.0/lib/
 sky_engine
 2.12
 file:///Users/ilya/dev/flutter/bin/cache/pkg/sky_engine/

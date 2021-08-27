@@ -74,6 +74,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_inappwebview",
+      "rootUri": "file:///Users/ilya/dev/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inappwebview-5.3.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_lints",
       "rootUri": "file:///Users/ilya/dev/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-1.0.4",
       "packageUri": "lib/",
@@ -194,13 +200,19 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "youtube_player_flutter",
+      "rootUri": "file:///Users/ilya/dev/flutter/.pub-cache/hosted/pub.dartlang.org/youtube_player_flutter-8.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "movie_app",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-08-27T07:17:15.808475Z",
+  "generated": "2021-08-27T15:04:49.992117Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }
