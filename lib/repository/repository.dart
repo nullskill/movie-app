@@ -4,6 +4,7 @@ import 'package:movie_app/model/genre_response.dart';
 import 'package:movie_app/model/movie_detail_response.dart';
 import 'package:movie_app/model/movie_response.dart';
 import 'package:movie_app/model/person_response.dart';
+import 'package:movie_app/model/video_response.dart';
 import 'package:movie_app/utils/consts.dart';
 
 // The movie repository for managing API calls
@@ -102,10 +103,7 @@ class MovieRepository {
   }
 
   Future<CastResponse> getMovieDetails(int id) async {
-    final params = {
-      'api_key': apiKey,
-      'language': 'en-US',
-    };
+    final params = {'api_key': apiKey, 'language': 'en-US'};
 
     try {
       Response response =
@@ -120,10 +118,7 @@ class MovieRepository {
   }
 
   Future<CastResponse> getCasts(int id) async {
-    final params = {
-      'api_key': apiKey,
-      'language': 'en-US',
-    };
+    final params = {'api_key': apiKey, 'language': 'en-US'};
 
     try {
       Response response =
@@ -138,10 +133,7 @@ class MovieRepository {
   }
 
   Future<MovieResponse> getSimilarMovies(int id) async {
-    final params = {
-      'api_key': apiKey,
-      'language': 'en-US',
-    };
+    final params = {'api_key': apiKey, 'language': 'en-US'};
 
     try {
       Response response =
@@ -152,6 +144,21 @@ class MovieRepository {
       debugPrint('Exception occured: $error stackTrace: $stackTrace');
 
       return MovieResponse.withError('$error');
+    }
+  }
+
+  Future<VideoResponse> getMovieVideos(int id) async {
+    final params = {'api_key': apiKey, 'language': 'en-US'};
+
+    try {
+      Response response =
+          await _dio.get('movieUrl/$id/videos', queryParameters: params);
+
+      return VideoResponse.fromMap(response.data);
+    } catch (error, stackTrace) {
+      debugPrint('Exception occured: $error stackTrace: $stackTrace');
+
+      return VideoResponse.withError('$error');
     }
   }
 }
