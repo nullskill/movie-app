@@ -5,6 +5,7 @@ import 'package:movie_app/bloc/get_movies_by_genre_bloc.dart';
 import 'package:movie_app/model/movie.dart';
 import 'package:movie_app/model/movie_response.dart';
 import 'package:movie_app/ui/res/colors.dart';
+import 'package:movie_app/ui/screens/details_screen.dart';
 import 'package:movie_app/ui/widgets/app_error.dart';
 import 'package:movie_app/ui/widgets/loader.dart';
 import 'package:movie_app/utils/consts.dart';
@@ -78,54 +79,64 @@ class _MoviesByGenre extends StatelessWidget {
               bottom: 10,
               right: 10,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _getMoviePoster(movie),
-                const SizedBox(height: 10),
-                SizedBox(
-                  width: 120,
-                  child: Text(
-                    movie.title,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      height: 1.4,
-                      fontSize: 11,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.whiteColor,
-                    ),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => MovieDetailsScreen(movie: movie),
                   ),
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  children: [
-                    Text(
-                      movie.rating.toString(),
+                );
+              },
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _getMoviePoster(movie),
+                  const SizedBox(height: 10),
+                  SizedBox(
+                    width: 120,
+                    child: Text(
+                      movie.title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        fontSize: 10,
+                        height: 1.4,
+                        fontSize: 11,
                         fontWeight: FontWeight.bold,
                         color: AppColors.whiteColor,
                       ),
                     ),
-                    const SizedBox(height: 5),
-                    RatingBar.builder(
-                      itemSize: 8,
-                      itemCount: 5,
-                      itemPadding: const EdgeInsets.symmetric(horizontal: 2),
-                      initialRating: movie.rating / 2,
-                      minRating: 1,
-                      direction: Axis.horizontal,
-                      allowHalfRating: true,
-                      itemBuilder: (context, _) => Icon(
-                        EvaIcons.star,
-                        color: AppColors.secondColor,
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    children: [
+                      Text(
+                        movie.rating.toString(),
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.whiteColor,
+                        ),
                       ),
-                      onRatingUpdate: (rating) => print(rating),
-                    ),
-                  ],
-                ),
-              ],
+                      const SizedBox(height: 5),
+                      RatingBar.builder(
+                        itemSize: 8,
+                        itemCount: 5,
+                        itemPadding: const EdgeInsets.symmetric(horizontal: 2),
+                        initialRating: movie.rating / 2,
+                        minRating: 1,
+                        direction: Axis.horizontal,
+                        allowHalfRating: true,
+                        itemBuilder: (context, _) => Icon(
+                          EvaIcons.star,
+                          color: AppColors.secondColor,
+                        ),
+                        onRatingUpdate: (rating) => print(rating),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           );
         },
@@ -160,7 +171,7 @@ class _MoviesByGenre extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(2)),
           shape: BoxShape.rectangle,
           image: DecorationImage(
-            image: NetworkImage('$tmdbUrl${movie.poster}'),
+            image: NetworkImage('$thumbsUrl${movie.poster}'),
             fit: BoxFit.cover,
           ),
         ),

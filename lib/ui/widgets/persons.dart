@@ -142,7 +142,7 @@ class _Persons extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           image: DecorationImage(
-            image: NetworkImage('$tmdbUrl${person.profileImg}'),
+            image: NetworkImage('$thumbsUrl${person.profileImg}'),
             fit: BoxFit.cover,
           ),
         ),

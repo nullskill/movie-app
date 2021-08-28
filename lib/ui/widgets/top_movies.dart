@@ -177,7 +177,7 @@ class _TopMovies extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(2)),
           shape: BoxShape.rectangle,
           image: DecorationImage(
-            image: NetworkImage('$tmdbUrl${movie.poster}'),
+            image: NetworkImage('$thumbsUrl${movie.poster}'),
             fit: BoxFit.cover,
           ),
         ),
