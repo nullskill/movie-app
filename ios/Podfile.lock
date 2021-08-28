@@ -4,6 +4,9 @@ PODS:
     - Flutter
     - flutter_inappwebview/Core (= 0.0.1)
     - OrderedSet (~> 5.0)
+  - flutter_inappwebview/Core (0.0.1):
+    - Flutter
+    - OrderedSet (~> 5.0)
   - OrderedSet (5.0.0)
 
 DEPENDENCIES:
@@ -25,6 +28,6 @@ SPEC CHECKSUMS:
   flutter_inappwebview: 8071687b24253e832322a9b733d272aa347fd632
   OrderedSet: aaeb196f7fef5a9edf55d89760da9176ad40b93c
 
-PODFILE CHECKSUM: 7adbc9d59f05e1b01f554ea99b6c79e97f2214a2
+PODFILE CHECKSUM: 1a012ce3db1c1a5aff66d98fb075c09f5165b574
 
 COCOAPODS: 1.10.2
