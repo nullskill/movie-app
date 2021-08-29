@@ -108,7 +108,7 @@ class MovieRepository {
 
     try {
       Response response =
-          await _dio.get('movieUrl/$id', queryParameters: params);
+          await _dio.get('$movieUrl/$id', queryParameters: params);
 
       return MovieDetailsResponse.fromMap(response.data);
     } catch (error, stackTrace) {
@@ -123,7 +123,7 @@ class MovieRepository {
 
     try {
       Response response =
-          await _dio.get('movieUrl/$id/credits', queryParameters: params);
+          await _dio.get('$movieUrl/$id/credits', queryParameters: params);
 
       return CastResponse.fromMap(response.data);
     } catch (error, stackTrace) {
@@ -138,7 +138,7 @@ class MovieRepository {
 
     try {
       Response response =
-          await _dio.get('movieUrl/$id/similar', queryParameters: params);
+          await _dio.get('$movieUrl/$id/similar', queryParameters: params);
 
       return MovieResponse.fromMap(response.data);
     } catch (error, stackTrace) {
@@ -153,7 +153,7 @@ class MovieRepository {
 
     try {
       Response response =
-          await _dio.get('movieUrl/$id/videos', queryParameters: params);
+          await _dio.get('$movieUrl/$id/videos', queryParameters: params);
 
       return VideoResponse.fromMap(response.data);
     } catch (error, stackTrace) {
