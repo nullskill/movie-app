@@ -7,14 +7,14 @@ import 'package:movie_app/ui/widgets/app_error.dart';
 import 'package:movie_app/ui/widgets/genres_list.dart';
 import 'package:movie_app/ui/widgets/loader.dart';
 
-class Genres extends StatefulWidget {
-  const Genres({Key? key}) : super(key: key);
+class GenresShowcase extends StatefulWidget {
+  const GenresShowcase({Key? key}) : super(key: key);
 
   @override
-  _GenresState createState() => _GenresState();
+  _GenresShowcaseState createState() => _GenresShowcaseState();
 }
 
-class _GenresState extends State<Genres> {
+class _GenresShowcaseState extends State<GenresShowcase> {
   @override
   void initState() {
     super.initState();

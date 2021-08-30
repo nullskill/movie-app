@@ -10,6 +10,7 @@ import 'package:movie_app/ui/widgets/app_error.dart';
 import 'package:movie_app/ui/widgets/casts.dart';
 import 'package:movie_app/ui/widgets/loader.dart';
 import 'package:movie_app/ui/widgets/movie_info.dart';
+import 'package:movie_app/ui/widgets/similar_movies.dart';
 import 'package:movie_app/utils/consts.dart';
 import 'package:sliver_fab/sliver_fab.dart';
 
@@ -208,6 +209,7 @@ class _SliverBody extends StatelessWidget {
             const SizedBox(height: 10),
             MovieInfo(id: movie.id),
             Casts(id: movie.id),
+            SimilarMovies(id: movie.id),
           ],
         ),
       ),

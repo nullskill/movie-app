@@ -8,14 +8,14 @@ import 'package:movie_app/ui/widgets/app_error.dart';
 import 'package:movie_app/ui/widgets/loader.dart';
 import 'package:movie_app/utils/consts.dart';
 
-class PersonsList extends StatefulWidget {
-  const PersonsList({Key? key}) : super(key: key);
+class TrendingPersons extends StatefulWidget {
+  const TrendingPersons({Key? key}) : super(key: key);
 
   @override
-  _PersonsListState createState() => _PersonsListState();
+  _TrendingPersonsState createState() => _TrendingPersonsState();
 }
 
-class _PersonsListState extends State<PersonsList> {
+class _TrendingPersonsState extends State<TrendingPersons> {
   static const title = 'TRENDING PERSONS ON THIS WEEK';
 
   @override

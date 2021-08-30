@@ -1,7 +1,7 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:movie_app/bloc/get_movies_bloc.dart';
+import 'package:movie_app/bloc/get_similar_movies_bloc.dart';
 import 'package:movie_app/model/movie.dart';
 import 'package:movie_app/model/movie_response.dart';
 import 'package:movie_app/ui/res/colors.dart';
@@ -9,21 +9,29 @@ import 'package:movie_app/ui/widgets/app_error.dart';
 import 'package:movie_app/ui/widgets/loader.dart';
 import 'package:movie_app/utils/consts.dart';
 
-class TopMovies extends StatefulWidget {
-  const TopMovies({Key? key}) : super(key: key);
+class SimilarMovies extends StatefulWidget {
+  final int id;
+  const SimilarMovies({Key? key, required this.id}) : super(key: key);
 
   @override
-  _TopMoviesState createState() => _TopMoviesState();
+  _SimilarMoviesState createState() => _SimilarMoviesState();
 }
 
-class _TopMoviesState extends State<TopMovies> {
-  static const title = 'TOP RATED MOVIES';
+class _SimilarMoviesState extends State<SimilarMovies> {
+  static const title = 'SIMILAR MOVIES';
 
   @override
   void initState() {
     super.initState();
 
-    moviesBloc..getMovies();
+    similarMoviesBloc..getSimilarMovies(widget.id);
+  }
+
+  @override
+  void dispose() {
+    similarMoviesBloc..drainStream();
+
+    super.dispose();
   }
 
   @override
@@ -44,7 +52,7 @@ class _TopMoviesState extends State<TopMovies> {
         ),
         SizedBox(height: 5),
         StreamBuilder<MovieResponse>(
-          stream: moviesBloc.subject.stream,
+          stream: similarMoviesBloc.subject.stream,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               final data = snapshot.data!;
