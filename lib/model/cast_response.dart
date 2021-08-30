@@ -13,7 +13,7 @@ class CastResponse {
 
   factory CastResponse.fromMap(Map<String, dynamic> map) {
     return CastResponse(
-      casts: List<Cast>.from(map['casts']?.map((m) => Cast.fromMap(m))),
+      casts: List<Cast>.from(map['cast']?.map((m) => Cast.fromMap(m))),
       error: '',
     );
   }

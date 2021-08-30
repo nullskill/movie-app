@@ -7,6 +7,7 @@ import 'package:movie_app/model/video.dart';
 import 'package:movie_app/model/video_response.dart';
 import 'package:movie_app/ui/res/colors.dart';
 import 'package:movie_app/ui/widgets/app_error.dart';
+import 'package:movie_app/ui/widgets/casts.dart';
 import 'package:movie_app/ui/widgets/loader.dart';
 import 'package:movie_app/ui/widgets/movie_info.dart';
 import 'package:movie_app/utils/consts.dart';
@@ -206,6 +207,7 @@ class _SliverBody extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             MovieInfo(id: movie.id),
+            Casts(id: movie.id),
           ],
         ),
       ),

@@ -172,7 +172,7 @@ class _MoviesByGenre extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(2)),
           shape: BoxShape.rectangle,
           image: DecorationImage(
-            image: NetworkImage('$thumbsUrl${movie.poster}'),
+            image: NetworkImage('$thumbs200Url${movie.poster}'),
             fit: BoxFit.cover,
           ),
         ),
