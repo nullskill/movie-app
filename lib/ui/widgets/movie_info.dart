@@ -107,43 +107,7 @@ class _MovieInfo extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              SizedBox(
-                height: 30,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 5),
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: details!.genres.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: DecoratedBox(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(5),
-                            ),
-                            border: Border.all(
-                              width: 1,
-                              color: AppColors.whiteColor,
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(5),
-                            child: Text(
-                              details!.genres[index].name,
-                              style: TextStyle(
-                                fontSize: 9,
-                                fontWeight: FontWeight.w300,
-                                color: AppColors.whiteColor,
-                              ),
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ),
+              _GenreChip(details: details),
             ],
           ),
         ),
@@ -185,6 +149,56 @@ class _InfoColumn extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+}
+
+class _GenreChip extends StatelessWidget {
+  const _GenreChip({
+    Key? key,
+    required this.details,
+  }) : super(key: key);
+
+  final MovieDetails? details;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 30,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 5),
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: details!.genres.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(5),
+                  ),
+                  border: Border.all(
+                    width: 1,
+                    color: AppColors.whiteColor,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(5),
+                  child: Text(
+                    details!.genres[index].name,
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w300,
+                      color: AppColors.whiteColor,
+                    ),
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
     );
   }
 }

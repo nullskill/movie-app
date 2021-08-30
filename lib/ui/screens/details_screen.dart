@@ -6,6 +6,7 @@ import 'package:movie_app/model/movie.dart';
 import 'package:movie_app/model/video.dart';
 import 'package:movie_app/model/video_response.dart';
 import 'package:movie_app/ui/res/colors.dart';
+import 'package:movie_app/ui/screens/video_player_screen.dart';
 import 'package:movie_app/ui/widgets/app_error.dart';
 import 'package:movie_app/ui/widgets/casts.dart';
 import 'package:movie_app/ui/widgets/loader.dart';
@@ -13,6 +14,7 @@ import 'package:movie_app/ui/widgets/movie_info.dart';
 import 'package:movie_app/ui/widgets/similar_movies.dart';
 import 'package:movie_app/utils/consts.dart';
 import 'package:sliver_fab/sliver_fab.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class MovieDetailsScreen extends StatefulWidget {
   final Movie movie;
@@ -228,7 +230,19 @@ class _Video extends StatelessWidget {
       backgroundColor: AppColors.secondColor,
       child: Icon(Icons.play_arrow),
       onPressed: () {
-        return null;
+        Navigator.push<void>(
+          context,
+          MaterialPageRoute(builder: (_) {
+            return VideoPlayerScreen(
+              controller: YoutubePlayerController(
+                initialVideoId: videos[0].key,
+                flags: YoutubePlayerFlags(
+                  autoPlay: true,
+                ),
+              ),
+            );
+          }),
+        );
       },
     );
   }
