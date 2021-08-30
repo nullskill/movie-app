@@ -3,7 +3,7 @@ import 'package:movie_app/model/movie_detail.dart';
 
 @immutable
 class MovieDetailsResponse {
-  final MovieDetails movieDetail;
+  final MovieDetails? movieDetail;
   final String error;
 
   MovieDetailsResponse({
@@ -19,13 +19,7 @@ class MovieDetailsResponse {
   }
 
   MovieDetailsResponse.withError(String errorValue)
-      : movieDetail = MovieDetails(
-            id: null,
-            adult: null,
-            budget: null,
-            genres: null,
-            releaseDate: '',
-            runtime: null),
+      : movieDetail = null,
         error = errorValue;
 
   @override

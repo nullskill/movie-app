@@ -131,6 +131,7 @@ class _MoviesByGenre extends StatelessWidget {
                           EvaIcons.star,
                           color: AppColors.secondColor,
                         ),
+                        unratedColor: AppColors.whiteColor,
                         onRatingUpdate: (rating) => print(rating),
                       ),
                     ],

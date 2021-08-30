@@ -4,10 +4,10 @@ import 'package:movie_app/model/genre.dart';
 
 @immutable
 class MovieDetails extends Equatable {
-  final int? id;
-  final bool? adult;
-  final int? budget;
-  final List<Genre>? genres;
+  final int id;
+  final bool adult;
+  final int budget;
+  final List<Genre> genres;
   final String releaseDate;
   final int? runtime;
 

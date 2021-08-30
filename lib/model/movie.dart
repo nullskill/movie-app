@@ -9,6 +9,7 @@ class Movie extends Equatable {
   final String title;
   final String? poster;
   final String? backPoster;
+  final String overview;
   final num popularity;
   final num rating;
 
@@ -17,6 +18,7 @@ class Movie extends Equatable {
     required this.title,
     required this.poster,
     required this.backPoster,
+    required this.overview,
     required this.popularity,
     required this.rating,
   });
@@ -26,6 +28,7 @@ class Movie extends Equatable {
     String? title,
     String? poster,
     String? backPoster,
+    String? overview,
     double? popularity,
     double? rating,
   }) {
@@ -33,6 +36,7 @@ class Movie extends Equatable {
       id: id ?? this.id,
       title: title ?? this.title,
       poster: poster ?? this.poster,
+      overview: overview ?? this.overview,
       backPoster: backPoster ?? this.backPoster,
       popularity: popularity ?? this.popularity,
       rating: rating ?? this.rating,
@@ -47,6 +51,7 @@ class Movie extends Equatable {
       title: map['title'],
       poster: map['poster_path'],
       backPoster: map['backdrop_path'],
+      overview: map['overview'],
       popularity: map['popularity'],
       rating: map['vote_average'],
     );
@@ -58,12 +63,13 @@ class Movie extends Equatable {
         title,
         poster,
         backPoster,
+        overview,
         popularity,
         rating,
       ];
 
   @override
   String toString() {
-    return 'Movie(id: $id, title: $title, poster: $poster, backPoster: $backPoster, popularity: $popularity, rating: $rating)';
+    return 'Movie(id: $id, title: $title, poster: $poster, overview: $overview, backPoster: $backPoster, popularity: $popularity, rating: $rating)';
   }
 }
