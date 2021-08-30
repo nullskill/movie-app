@@ -20,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: AppColors.mainColor,
       appBar: AppBar(
         backgroundColor: AppColors.mainColor,
+        brightness: Brightness.dark,
         centerTitle: true,
         leading: Icon(EvaIcons.menu2Outline, color: AppColors.whiteColor),
         title: Text('Movie app'),

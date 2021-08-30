@@ -85,6 +85,7 @@ class _SliverAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       backgroundColor: AppColors.mainColor,
+      brightness: Brightness.dark,
       expandedHeight: 200,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
