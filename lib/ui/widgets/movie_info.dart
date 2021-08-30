@@ -56,6 +56,7 @@ class _MovieInfo extends StatelessWidget {
   static const budgetTitle = 'BUDGET';
   static const durationTitle = 'DURATION';
   static const releasedTitle = 'RELEASE DATE';
+  static const genresTitle = 'GENRES';
   final MovieDetails? details;
 
   const _MovieInfo({Key? key, required this.details}) : super(key: key);
@@ -92,41 +93,58 @@ class _MovieInfo extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         // Genres
-        SizedBox(
-          height: 38,
-          child: Padding(
-            padding: const EdgeInsets.only(right: 10, left: 10),
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: details!.genres.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.only(right: 10),
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5),
-                      ),
-                      border: Border.all(
-                        width: 1,
-                        color: AppColors.whiteColor,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(5),
-                      child: Text(
-                        details!.genres[index].name,
-                        style: TextStyle(
-                          fontSize: 9,
-                          fontWeight: FontWeight.w300,
-                          color: AppColors.whiteColor,
+        Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                genresTitle,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.titleColor,
+                ),
+              ),
+              const SizedBox(height: 10),
+              SizedBox(
+                height: 30,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 5),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: details!.genres.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(5),
+                            ),
+                            border: Border.all(
+                              width: 1,
+                              color: AppColors.whiteColor,
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(5),
+                            child: Text(
+                              details!.genres[index].name,
+                              style: TextStyle(
+                                fontSize: 9,
+                                fontWeight: FontWeight.w300,
+                                color: AppColors.whiteColor,
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
+                      );
+                    },
                   ),
-                );
-              },
-            ),
+                ),
+              ),
+            ],
           ),
         ),
       ],
