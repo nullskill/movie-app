@@ -4,16 +4,39 @@ import 'package:movie_app/ui/res/colors.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoPlayerScreen extends StatefulWidget {
-  final YoutubePlayerController controller;
+  final String videoKey;
 
-  const VideoPlayerScreen({Key? key, required this.controller})
-      : super(key: key);
+  const VideoPlayerScreen({Key? key, this.videoKey = ''}) : super(key: key);
 
   @override
   _VideoPlayerScreenState createState() => _VideoPlayerScreenState();
 }
 
 class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
+  static const noVideosTitle = 'No videos';
+  YoutubePlayerController? _controller;
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (widget.videoKey == '') return;
+
+    _controller = YoutubePlayerController(
+      initialVideoId: widget.videoKey,
+      flags: YoutubePlayerFlags(
+        autoPlay: true,
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller?.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +44,15 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
       body: Stack(
         children: [
           Center(
-            child: YoutubePlayer(controller: widget.controller),
+            child: _controller == null
+                ? Text(
+                    noVideosTitle,
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: AppColors.whiteColor,
+                    ),
+                  )
+                : YoutubePlayer(controller: _controller!),
           ),
           Positioned(
             top: 40,

@@ -14,7 +14,6 @@ import 'package:movie_app/ui/widgets/movie_info.dart';
 import 'package:movie_app/ui/widgets/similar_movies.dart';
 import 'package:movie_app/utils/consts.dart';
 import 'package:sliver_fab/sliver_fab.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class MovieDetailsScreen extends StatefulWidget {
   final Movie movie;
@@ -233,14 +232,9 @@ class _Video extends StatelessWidget {
         Navigator.push<void>(
           context,
           MaterialPageRoute(builder: (_) {
-            return VideoPlayerScreen(
-              controller: YoutubePlayerController(
-                initialVideoId: videos[0].key,
-                flags: YoutubePlayerFlags(
-                  autoPlay: true,
-                ),
-              ),
-            );
+            if (videos.isEmpty) return VideoPlayerScreen();
+
+            return VideoPlayerScreen(videoKey: videos.first.key);
           }),
         );
       },
