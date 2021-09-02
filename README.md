@@ -7,4 +7,6 @@ This is a remake of <a href="https://github.com/bilguunint/movieapp">this</a> pr
 
 ### Demo
 
-<img src="https://github.com/nullskill/movie-app/blob/master/screenshots/movie_app.gif" alt="The movie app" width="220" height="439">
+<div>
+  <img src="https://github.com/nullskill/movie-app/blob/main/screenshots/movie_app.gif" alt="The movie app" width="220" height="439">
+</div>
